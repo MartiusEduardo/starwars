@@ -1,0 +1,27 @@
+<div>
+    @Html.ActionLink("Voltar", "Index", "Planetas", new {}, new { @class="btn btn-default"})
+    <p></p>
+    @using (Html.BeginForm("Inserir", "Planetas", FormMethod.Post, new { @class = "form-horizontal form-material", role = "form" })) {
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" name="Id" value="Id" class="form-control form-control-line">
+        <div class="form-group">
+            <label class="col-md-12">Nome</label>
+            <div class="col-md-12">
+                <input type="text" placeholder="Nome" name="Nome" class="form-control form-control-line">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-12">Clima</label>
+            <div class="col-md-12">
+                <input type="text" placeholder="Clima" name="Clima" class="form-control form-control-line">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-12">Terreno</label>
+            <div class="col-md-12">
+                <input type="text" placeholder="Terreno" name="Terreno" class="form-control form-control-line">
+            </div>
+        </div>
+        <input onclick="return confirm('Tem certeza que deseja inserir o planeta?');" class="btn btn-info" type="submit" value="Inserir Planeta"/>
+    }
+</div>

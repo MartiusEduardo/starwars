@@ -1,0 +1,35 @@
+@model StarWars.Models.Planeta
+
+<div>
+    @Html.ActionLink("Voltar", "Index", "Planetas", new {}, new { @class="btn btn-default"})
+    <p></p>
+    @using (Html.BeginForm("Modificar", "Planetas", FormMethod.Post, new { @class = "form-horizontal form-material", role = "form", enctype = "multipart/form-data" })) {
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" name="IdAlvo" value="@Model.Id" class="form-control form-control-line">
+        <div class="form-group">
+            <label class="col-md-12">Id</label>
+            <div class="col-md-12">
+                <input asp-for="@Model.Id" type="text" placeholder="Id" name="Id" class="form-control form-control-line" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-12">Nome</label>
+            <div class="col-md-12">
+                <input asp-for="@Model.Nome" type="text" placeholder="Nome" name="Nome" class="form-control form-control-line">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-12">Clima</label>
+            <div class="col-md-12">
+                <input asp-for="@Model.Clima" type="text" placeholder="Clima" name="Clima" class="form-control form-control-line">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-12">Terreno</label>
+            <div class="col-md-12">
+                <input asp-for="@Model.Terreno" type="text" placeholder="Terreno" name="Terreno" class="form-control form-control-line">
+            </div>
+        </div>
+        <input onclick="return confirm('Tem certeza que deseja atualizar o planeta?');" class="btn btn-info" type="submit" value="Atualizar Planeta"/>
+    }
+</div>
